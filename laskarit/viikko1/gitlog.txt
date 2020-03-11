@@ -1,0 +1,95 @@
+commit fe2a83262575308ae324a73b8e444f4e228ffa47
+Author: Jani Toivanen <jntv90@gmail.com>
+Date:   Wed Mar 11 06:05:07 2020 +0200
+
+    poistettiin file1 ja uudelleennimettiin file2
+
+ tiedostoja/file2.txt                 | 0
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 4383deebc856baa5ad0c763cc208f370a26d0e78
+Author: Jani Toivanen <jntv90@gmail.com>
+Date:   Wed Mar 11 06:02:26 2020 +0200
+
+    tehtiin hakemisto ja kolme tiedostoa
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 7219993fef27358dc124934b4cd53dfb2f4d738c
+Author: Jani Toivanen <jntv90@gmail.com>
+Date:   Wed Mar 11 05:59:26 2020 +0200
+
+    lisättiin tekstiä
+
+ eka.txt      |  2 +-
+ kolmas.txt   |  1 +
+ tiedosto.txt | 29 -----------------------------
+ 3 files changed, 2 insertions(+), 30 deletions(-)
+
+commit 71718f99ea3f15b92620e68d9d6cc8341567e50d
+Author: Jani Toivanen <jntv90@gmail.com>
+Date:   Wed Mar 11 05:57:37 2020 +0200
+
+    uudelleennimetty tiedosto.txt
+
+ eka.txt | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
+
+commit d75dd5e20fd238a5ca29ec59b8b6c5a02f689796
+Author: Jani Toivanen <jntv90@gmail.com>
+Date:   Wed Mar 11 05:57:00 2020 +0200
+
+    poistettu toinen.txt
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a36eae30da5a87eaa6010d88f58b79edd3c5f12a
+Author: Jani Toivanen <jntv90@gmail.com>
+Date:   Wed Mar 11 05:56:13 2020 +0200
+
+    muutettu tiedosto.txt
+
+ tiedosto.txt | 29 ++++++++++++++++++++++++++++-
+ 1 file changed, 28 insertions(+), 1 deletion(-)
+
+commit b67ce81a6750f8fc51ac715c1c66e43df21d2950
+Author: Jani Toivanen <jntv90@gmail.com>
+Date:   Wed Mar 11 05:48:48 2020 +0200
+
+    stuff hakemisto ja tiedosto sen sisälle
+
+ stuff/neljas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 2acbadeb44b36416a12fec8465ca8339e4496a73
+Author: Jani Toivanen <jntv90@gmail.com>
+Date:   Wed Mar 11 05:48:09 2020 +0200
+
+    lisättiin kolmas tiedosto
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 147161ac31670a517b18ee289940f9016f0e1d38
+Author: Jani Toivanen <jntv90@gmail.com>
+Date:   Wed Mar 11 05:46:59 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 2 ++
+ toinen.txt   | 0
+ 2 files changed, 2 insertions(+)
+
+commit ca9498595ffc004fdac36452100a946f108b0b24
+Author: Jani Toivanen <jntv90@gmail.com>
+Date:   Wed Mar 11 05:39:45 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
