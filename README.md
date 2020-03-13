@@ -8,5 +8,6 @@
 
 [komentorivi.txt](https://github.com/vexoo/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
-Testimuutos
-Testimuutos2
+### Viikko 2
+
+[testikattavuus](https://github.com/vexoo/ot-harjoitustyo/blob/master/laskarit/viikko2/testikattavuus.PNG)
