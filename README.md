@@ -1,5 +1,13 @@
 # Ohjelmistotekniikka, harjoitustyö
 
+## CalculatorApp
+
+### Dokumentaatio
+
+[Alustava vaatimusmäärittely](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/vaatimusmaarittely.md)
+
+[Työaikakirjanpito](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/tyoaikakirjanpito.md)
+
 ## Tehtävät
 
 ### Viikko 1
@@ -11,7 +19,6 @@
 ### Viikko 2
 
 [testikattavuus](https://github.com/vexoo/ot-harjoitustyo/blob/master/laskarit/viikko2/testikattavuus.PNG)
-
 
 ### Viikko 3
 [monopoli luokkakaavio](https://github.com/vexoo/ot-harjoitustyo/blob/master/laskarit/viikko3/monopoli.PNG)
