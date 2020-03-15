@@ -22,6 +22,7 @@ Sovellus on nimensä mukaisesti laskin JavaFX:llä toteutetulla käyttöliittym�
 ### Jatkokehitysideat
 
 Laskimen jatkokehitys varmaan keskittyy eri ominaisuuksien lisäämiseen
+
 Mahdollisia lisättäviä ominaisuuksia:
 
 - kertoma
