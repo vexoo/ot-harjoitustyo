@@ -8,7 +8,7 @@
 
 [Työaikakirjanpito](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/tyoaikakirjanpito.md)
 
-## Tehtävät
+## Laskarit
 
 ### Viikko 1
 
