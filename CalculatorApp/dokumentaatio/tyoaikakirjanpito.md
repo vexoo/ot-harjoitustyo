@@ -6,3 +6,4 @@
 | 15.3. | 7   | javaFX harjoittelua |
 | 17.3. | 3   | suurin osa laskimen napeista luotu |
 | 17.3. | 3  | regex harjoittelua |
+| 17.3. | 2  | ohjelmointia |
