@@ -6,4 +6,5 @@
 | 15.3. | 7   | javaFX harjoittelua, ohjelmoinnin aloitus |
 | 17.3. | 3   | suurin osa laskimen napeista luotu |
 | 17.3. | 5  | regex harjoittelua, ohjelmointia |
+| 25.3. | 1 | testien tekemisen aloitus |
 
