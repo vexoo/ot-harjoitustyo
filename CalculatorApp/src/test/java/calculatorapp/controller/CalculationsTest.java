@@ -37,26 +37,65 @@ public class CalculationsTest {
     }
 
     @Test
-    public void testPositiveNumbers() {
-        mainField.setText("50");
-        secondField.setText("60");
-        
+    public void testNaturalNumberAddition() {
+        setToNaturalNumbers();
         calculations.setOperator(Operator.ADD);
-        int result = Integer.parseInt(calculations.calculate(mainField, secondField));
-        assertEquals(110, result);
-        
+        int result = returnResult();
+        assertEquals(60, result);
+    }
+
+    @Test
+    public void testNaturalNumberSubtraction() {
+        setToNaturalNumbers();
         calculations.setOperator(Operator.SUBTRACT);
-        result = Integer.parseInt(calculations.calculate(mainField, secondField));
-        assertEquals(10, result);
+        int result = returnResult();
+        assertEquals(20, result);
+    }
+
+    @Test
+    public void testNegativeNumberAddition() {
+        setToNegativeNumbers();
+        calculations.setOperator(Operator.ADD);
+        int result = returnResult();
+        assertEquals(-60, result);
+
+        mainField.setText("20");
+        result = returnResult();
+        assertEquals(-20, result);
+
+    }
+
+    @Test
+    public void testNaturalNumberMultiplication() {
+        setToNaturalNumbers();
+        calculations.setOperator(Operator.MULTIPLY);
+        int result = returnResult();
+        assertEquals(800, result);
+    }
+
+    @Test
+    public void testNaturalNumberDivision() {
+        setToNaturalNumbers();
+        calculations.setOperator(Operator.DIVIDE);
+        int result = returnResult();
+        assertEquals(2, result);
+    }
+
+    public void setToNaturalNumbers() {
+        secondField.setText("40");
+        mainField.setText("20");
+    }
+
+    public void setToNegativeNumbers() {
+        secondField.setText("-40");
+        mainField.setText("-20");
+    }
+
+    public int returnResult() {
+        return Integer.parseInt(calculations.calculate(mainField, secondField));
     }
 
     @After
     public void tearDown() {
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }
