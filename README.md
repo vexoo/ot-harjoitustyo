@@ -10,7 +10,7 @@
 
 ### Komentorivitoiminnot
 
-Osoita komentorivi CalculatorApp kansioon
+Osoita komentorivi CalculatorApp kansioon<br/>
 Avaa ohjelma:
 
 ```
