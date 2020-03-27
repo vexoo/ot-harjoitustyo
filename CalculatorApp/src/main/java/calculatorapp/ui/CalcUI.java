@@ -43,6 +43,10 @@ public class CalcUI extends Application {
     private GridPane buttons;
     //private long value = 0;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) {
 
@@ -51,13 +55,11 @@ public class CalcUI extends Application {
         calculations = new Calculations();
         buttons = createGrid();
 
-        mainField = createTextField();
-        mainField.setFont(new Font("SansSerif", 27));
-        secondField = createTextField();
-        secondField.setFont(new Font("SansSerif", 22));
+        mainField = createTextField(new Font("SansSerif", 27));
+        secondField = createTextField(new Font("SansSerif", 22));
 
-        VBox resultLayout = new VBox();
-        resultLayout.getChildren().addAll(secondField, mainField);
+        VBox displayFields = new VBox();
+        displayFields.getChildren().addAll(secondField, mainField);
 
         createNumberButtons();
         createOperatorButtons();
@@ -65,7 +67,7 @@ public class CalcUI extends Application {
 
         BorderPane root = new BorderPane();
         root.setPadding(new Insets(10));
-        root.setTop(resultLayout);
+        root.setTop(displayFields);
         root.setCenter(buttons);
 
         Scene scene = new Scene(root, 465, 430);
@@ -74,11 +76,12 @@ public class CalcUI extends Application {
         primaryStage.show();
     }
 
-    private TextField createTextField() {
+    private TextField createTextField(Font font) {
         TextField textField = new TextField();
         textField.setMaxWidth(465);
         textField.setEditable(false);
         textField.setStyle("-fx-text-box-border: transparent; -fx-background-color: -fx-control-inner-background;");
+        textField.setFont(font);
         return textField;
     }
 
@@ -137,8 +140,7 @@ public class CalcUI extends Application {
             if (resultDisplayed) {
                 mainField.setText(numberAsString);
                 resultDisplayed = false;
-            } else if (mainField.getText().equals("0")){
-                //mainField.appendText(numberAsString);
+            } else if (mainField.getText().equals("0")) {
                 mainField.setText(numberAsString);
             } else {
                 mainField.appendText(numberAsString);
@@ -201,9 +203,5 @@ public class CalcUI extends Application {
             secondField.clear();
         });
         buttons.add(sqrt, 1, 0);
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

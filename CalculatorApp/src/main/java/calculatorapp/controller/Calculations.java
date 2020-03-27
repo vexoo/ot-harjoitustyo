@@ -9,18 +9,8 @@ public class Calculations {
     public Operator currentOperator;
 
     public String calculate(TextField mainField, TextField secondField) {
-        //double firstVal = Double.parseDouble(aux.getText().replaceAll("([\\+\\-\\u00F7\\*\\s](?![0-9]))", "").replaceAll("\\,", "."));
-        String maxValue = Double.toString(Double.MAX_VALUE);
-        String secondString = secondField.getText().replaceAll("([\\+\\-\\u00F7\\*\\s\\^](?![0-9]))", "");
-        String firstString = mainField.getText();
-
-        if (!(isInDoubleRange(secondString) || isInDoubleRange(firstString))) {
-            //BigDecimal result = BigDecimal.valueOf(currentOperator.equation(Double, 0.0));
-        }
         double firstVal = Double.parseDouble(secondField.getText().replaceAll("([\\+\\-\\u00F7\\*\\s\\^](?![0-9]))", ""));
-        //BigDecimal firstVal = new BigDecimal(secondField.getText().replaceAll("([\\+\\-\\u00F7\\*\\s\\^](?![0-9]))", ""));
         double secondVal = parseDouble(mainField);
-        //BigDecimal secondVal = new BigDecimal(mainField.getText());
 
         if (secondVal == 0 && currentOperator == Operator.DIVIDE) {
             return "Cannot divide by zero";
@@ -28,6 +18,11 @@ public class Calculations {
         }
 
         double result = currentOperator.applyOperator(firstVal, secondVal);
+        
+//        if (firstVal == Double.MAX_VALUE || secondVal == Double.MAX_VALUE || result == Double.MAX_VALUE){
+//            BigDecimal firstValue = new BigDecimal(secondField.getText().replaceAll("([\\+\\-\\u00F7\\*\\s\\^](?![0-9]))", ""));
+//            BigDecimal secondValue = new BigDecimal(mainField.getText());
+//        }
         return Strings.formatIntoCalcDisplay(result);
     }
 
