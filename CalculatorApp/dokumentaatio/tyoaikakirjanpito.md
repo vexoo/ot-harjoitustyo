@@ -8,4 +8,5 @@
 | 17.3. | 5  | regex harjoittelua, ohjelmointia |
 | 25.3. | 2 | loput laskimen napit luotu |
 | 25.3. | 3 | testien tekemisen aloitus, ohjelmointia |
+| 27.3. | 1 | ohjelman pusku githubiin, testaus virtuaalityöasemassa |
 
