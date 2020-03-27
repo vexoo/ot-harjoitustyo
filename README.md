@@ -10,6 +10,19 @@
 
 ### Komentorivitoiminnot
 
+Avaa ohjelma
+
+```
+mvn compile exec:java -Dexec.mainClass=calculatorapp.ui.CalcUI
+```
+
+Suorita testit
+
 ```
 mvn test
+```
+Testikattavuusraportti
+
+```
+mvn jacoco:report
 ```
