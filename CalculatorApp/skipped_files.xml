@@ -6,6 +6,4 @@
 
 <suppressions>
     <suppress files="calculatorapp.ui.CalcUI.java" checks="[a-zA-Z0-9]*"/>
-	<suppress files="calculatorapp.Main.java" checks="[a-zA-Z0-9]*"/>
-	<suppress files="[\\/]calculatorapp.ui[\\/]" checks="[a-zA-Z0-9]*"/>
 </suppressions>
