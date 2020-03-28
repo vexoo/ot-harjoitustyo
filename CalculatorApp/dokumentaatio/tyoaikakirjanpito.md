@@ -11,4 +11,4 @@
 | 26.3. | 7 | ohjelmointia |
 | 27.3. | 1 | pari uutta testiä tehty |
 | 27.3. | 1 | githubin version päivitys, testaus virtuaalityöasemassa |
-
+| 28.3. | 1 | checkstyle säätöä |
