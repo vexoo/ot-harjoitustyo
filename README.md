@@ -28,3 +28,10 @@ Testikattavuusraportti:
 ```
 mvn jacoco:report
 ```
+
+Checkstyle:
+
+```
+mvn jxr:jxr checkstyle:checkstyle
+```
+Checkstyle raportti: target/site/checkstyle.html
