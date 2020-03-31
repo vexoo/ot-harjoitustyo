@@ -23,13 +23,13 @@ Suorita testit:
 mvn test
 ```
 
-Testikattavuusraportti(target/site/jacoco/index.html):
+Testikattavuusraportti (target/site/jacoco/index.html):
 
 ```
 mvn jacoco:report
 ```
 
-Checkstyle(target/site/checkstyle.html):
+Checkstyle (target/site/checkstyle.html):
 
 ```
 mvn jxr:jxr checkstyle:checkstyle
