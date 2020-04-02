@@ -2,6 +2,8 @@
 
 ## CalculatorApp
 
+JavaFX:llä toteutetulla käyttöliittymällä varustettu laskin. </br>Windows10 laskimen kaksi eri tekstiriviä toimi inspiraationa laskimen näyttöön
+
 ### Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/vaatimusmaarittely.md)
