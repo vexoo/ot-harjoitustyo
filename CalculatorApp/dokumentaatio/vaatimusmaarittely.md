@@ -18,7 +18,8 @@ Sovellus on nimensä mukaisesti laskin JavaFX:llä toteutetulla käyttöliittym�
   - nykyisen syötteen lasku
   - desimaali
   - +/- jolla vaihdetaan nykyinen syöte positiivisesta negatiiviseksi tai päinvastoin
-Perusversion kaikki toiminnallisuudet ovat toteutettu
+
+</br>Perusversion kaikki toiminnallisuudet ovat toteutettu
 
 
 ### Jatkokehitysideat
