@@ -8,6 +8,8 @@
 
 [Työaikakirjanpito](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/tyoaikakirjanpito.md)
 
+[Arkkitehtuuri](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/arkkitehtuuri.md)
+
 ### Komentorivitoiminnot
 
 Osoita komentorivi CalculatorApp kansioon.<br/>
