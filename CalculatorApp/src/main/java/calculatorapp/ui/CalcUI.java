@@ -27,7 +27,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import calculatorapp.controller.Calculations;
 import calculatorapp.controller.Strings;
-import calculatorapp.controller.Operator;
+import calculatorapp.operator.Operator;
 import java.util.Locale;
 import javafx.scene.text.Font;
 

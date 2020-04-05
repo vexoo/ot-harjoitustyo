@@ -12,11 +12,12 @@ import javafx.scene.control.TextField;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.*;
+//import static org.junit.jupiter.api.Assertions.*;
 import org.junit.runner.RunWith;
 import calculatorapp.ui.CalcUI;
 import calculatorapp.Main;
 import de.saxsys.javafx.test.JfxRunner;
+import calculatorapp.operator.*;
 
 /**
  *
@@ -34,6 +35,14 @@ public class CalculationsTest {
         calculations = new Calculations();
         mainField = new TextField();
         secondField = new TextField();
+    }
+
+    @Test
+    public void returnOperator() {
+        calculations.setOperator(Operator.ADD);
+        String expected = "+";
+        String value = calculations.getOperator();
+        assertEquals(expected, value);
     }
 
     @Test
@@ -79,6 +88,43 @@ public class CalculationsTest {
         calculations.setOperator(Operator.DIVIDE);
         int result = returnResult();
         assertEquals(2, result);
+    }
+
+    @Test
+    public void divideByZero() {
+        secondField.setText("40");
+        mainField.setText("0");
+        calculations.setOperator(Operator.DIVIDE);
+        assertEquals("Cannot divide by zero", calculations.calculate(mainField, secondField));
+    }
+
+    @Test
+    public void setNegative() {
+        mainField.setText("3");
+        calculations.setToPositiveOrNegative(mainField);
+        int result = Integer.parseInt(mainField.getText());
+        assertEquals(-3, result);
+    }
+
+    @Test
+    public void setPositive() {
+        mainField.setText("-3");
+        calculations.setToPositiveOrNegative(mainField);
+        int result = Integer.parseInt(mainField.getText());
+        assertEquals(3, result);
+    }
+
+    @Test
+    public void squareRootProperInput() {
+        mainField.setText("4");
+        int result = Integer.parseInt(calculations.squareRoot(mainField));
+        assertEquals(2, result);
+    }
+
+    @Test
+    public void squareRootNegativeInput() {
+        mainField.setText("-4");
+        assertEquals("Invalid input", calculations.squareRoot(mainField));
     }
 
     public void setToNaturalNumbers() {
