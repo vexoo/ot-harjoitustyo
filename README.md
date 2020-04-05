@@ -34,14 +34,14 @@ mvn jacoco:report
 Sijainti - _target/site/jacoco/index.html_
 
 
-##### Checkstyle :
+##### Checkstyle:
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
 Sijainti - _target/site/checkstyle.html_
 
 
-##### JavaDoc
+##### JavaDoc:
 
 ```
 mvn javadoc:javadoc
