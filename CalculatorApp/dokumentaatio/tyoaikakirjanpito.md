@@ -13,3 +13,4 @@
 | 27.3. | 1 | githubin version päivitys, testaus virtuaalityöasemassa |
 | 28.3. | 1 | checkstyle säätöä |
 | 1.4. | 1 | pari testiä luotu|
+| yht   | 32   | | 
