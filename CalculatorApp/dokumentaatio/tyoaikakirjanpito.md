@@ -14,4 +14,5 @@
 | 28.3. | 1 | checkstyle säätöä |
 | 1.4. | 1 | pari testiä luotu |
 | 5.4. | 3 | suurten lukujen implementointia, ei vielä valmis |
-| yht   | 35   | | 
+| 5.4. | 5 | suurten lukujen implementointia, valmis |
+| yht   | 40   | | 
