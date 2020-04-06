@@ -18,72 +18,31 @@ public enum Operator {
     }
 
     /**
-     * Metodi yhteenlaskuun.
-     *
-     * @param firstValue Ensimmäinen luku
-     * @param secondValue Toinen luku
-     * @return summa
+     * Laskee annetun laskutoimituksen
+     * @param firstValue ensimmäinen luku
+     * @param secondValue toinen luku
+     * @param operator nykyinen operaattori
+     * @return summa/erotus/jne riippuen operaattorista
      */
-    public BigDecimal addition(String firstValue, String secondValue) {
-        return toBDecimal(firstValue).add(toBDecimal(secondValue));
-    }
-
-    /**
-     * Metodi vähennyslaskuun.
-     *
-     * @param firstValue Ensimmäinen luku
-     * @param secondValue Toinen luku
-     * @return erotus
-     */
-    public BigDecimal subtraction(String firstValue, String secondValue) {
-        return toBDecimal(firstValue).subtract(toBDecimal(secondValue));
-    }
-
-    /**
-     * Metodi kertolaskuun.
-     *
-     * @param firstValue Ensimmäinen luku
-     * @param secondValue Toinen luku
-     * @return tulo
-     */
-    public BigDecimal multiplication(String firstValue, String secondValue) {
-        return toBDecimal(firstValue).multiply(toBDecimal(secondValue));
-    }
-
-    /**
-     * Metodi jakolaskuun.
-     *
-     * @param firstValue Ensimmäinen luku
-     * @param secondValue Toinen luku
-     * @return osamäärä
-     */
-    public BigDecimal division(String firstValue, String secondValue) {
-        return toBDecimal(firstValue).divide(toBDecimal(secondValue));
-    }
-
-    /**
-     * Metodi potenssilaskuun.
-     *
-     * @param firstValue Ensimmäinen luku
-     * @param secondValue Toinen luku
-     * @return vastaus
-     */
-    public BigDecimal power(String firstValue, String secondValue) {
+    public BigDecimal applyOperator(BigDecimal firstValue, BigDecimal secondValue, Operator operator) {
         MathContext mathContext = new MathContext(20);
-        return BigDecimalMath.pow(
-                toBDecimal(firstValue),
-                toBDecimal(secondValue), mathContext);
-    }
-
-    /**
-     * Apumetodi vähentämään copy-pastea. Muuttaa String-muuttujan
-     * BigDecimaliksi.
-     *
-     * @param string Luku joka on String muodossa
-     * @return Luku muutettu BigDecimaliksi
-     */
-    private BigDecimal toBDecimal(String string) {
-        return BigDecimalMath.toBigDecimal(string);
+        switch (operator) {
+            case ADD:
+                firstValue = firstValue.add(secondValue, mathContext);
+                break;
+            case SUBTRACT:
+                firstValue = firstValue.subtract(secondValue, mathContext);
+                break;
+            case DIVIDE:
+                firstValue = firstValue.divide(secondValue, mathContext);
+                break;
+            case MULTIPLY:
+                firstValue = firstValue.multiply(secondValue, mathContext);
+                break;
+            case POWER:
+                firstValue = BigDecimalMath.pow(firstValue, secondValue, mathContext);
+        }
+        return firstValue;
     }
 
     @Override

@@ -29,38 +29,12 @@ public class Calculations {
             return "Cannot divide by zero";
         }
 
-        BigDecimal result = getResult(fVal, sVal);
+        BigDecimal firstVal = BigDecimalMath.toBigDecimal(fVal);
+        BigDecimal secondVal = BigDecimalMath.toBigDecimal(sVal);
+        BigDecimal result = currentOperator.applyOperator(firstVal, secondVal, currentOperator);
         return Strings.formatIntoCalcDisplay(result);
     }
 
-    /**
-     * Apumetodi calculate-metodille. Tekee laskutoimituksen riippuen mihin
-     * Operator-enumiin currentOperator osoittaa tällä hetkellä.
-     *
-     * @param firstVal ensimmäinen luku
-     * @param secondVal toinen luku
-     * @return laskutoimituksen vastaus BigDecimal-muodossa
-     */
-    public BigDecimal getResult(String firstVal, String secondVal) {
-        BigDecimal result = BigDecimal.ZERO;
-        switch (currentOperator) {
-            case ADD:
-                result = currentOperator.addition(firstVal, secondVal);
-                break;
-            case SUBTRACT:
-                result = currentOperator.subtraction(firstVal, secondVal);
-                break;
-            case DIVIDE:
-                result = currentOperator.division(firstVal, secondVal);
-                break;
-            case MULTIPLY:
-                result = currentOperator.multiplication(firstVal, secondVal);
-                break;
-            case POWER:
-                result = currentOperator.power(firstVal, secondVal);
-        }
-        return result;
-    }
 
     /**
      * Laskee mainFieldin luvun neliöjuuren. Jos ylemmässä textFieldissä on
