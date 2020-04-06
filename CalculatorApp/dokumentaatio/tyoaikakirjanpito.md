@@ -16,4 +16,4 @@
 | 5.4. | 3 | suurten lukujen implementointia, ei vielä valmis |
 | 5.4. | 5 | suurten lukujen implementointia, valmis |
 | 6.4. | 2 | refaktorointia |
-| yht   | 40   | | 
+| yht   | 42   | | 
