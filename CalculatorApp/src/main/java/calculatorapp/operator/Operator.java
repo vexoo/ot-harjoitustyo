@@ -18,7 +18,7 @@ public enum Operator {
     }
 
     /**
-     * Laskee annetun laskutoimituksen
+     * Laskee annetun laskutoimituksen.
      * @param firstValue ensimmäinen luku
      * @param secondValue toinen luku
      * @param operator nykyinen operaattori
