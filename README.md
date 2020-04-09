@@ -21,11 +21,21 @@ Osoita komentorivi CalculatorApp kansioon.<br/>
 mvn compile exec:java -Dexec.mainClass=calculatorapp.ui.CalcUI
 ```
 
+##### Generoi suoritettava jar:
+
+```
+mvn package
+```
+Sijainti - _target/site/jacoco/index.html_
+
+
 ##### Suorita testit:
 
 ```
 mvn test
 ```
+Sijainti - _target/CalculatorApp-1.0-SNAPSHOT.jar_
+
 
 ##### Testikattavuusraportti:
 ```
