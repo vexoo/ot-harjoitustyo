@@ -26,15 +26,14 @@ mvn compile exec:java -Dexec.mainClass=calculatorapp.ui.CalcUI
 ```
 mvn package
 ```
-Sijainti - _target/site/jacoco/index.html_
-
+Sijainti - _target/CalculatorApp-1.0-SNAPSHOT.jar_
 
 ##### Suorita testit:
 
 ```
 mvn test
 ```
-Sijainti - _target/CalculatorApp-1.0-SNAPSHOT.jar_
+Sijainti - _target/site/jacoco/index.html_
 
 
 ##### Testikattavuusraportti:
