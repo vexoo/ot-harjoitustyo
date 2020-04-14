@@ -16,4 +16,5 @@
 | 5.4. | 3 | suurten lukujen implementointia, ei vielä valmis |
 | 5.4. | 5 | suurten lukujen implementointia, valmis |
 | 6.4. | 2 | refaktorointia |
-| yht   | 42   | | 
+| 14.4. | 2 | viikko5 release, viimeiset testit, sekvenssikaavio |
+| yht   | 44   | | 
