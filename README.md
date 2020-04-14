@@ -4,7 +4,7 @@
 
 JavaFX:llä toteutetulla käyttöliittymällä varustettu laskin. </br>Windows10 laskimen kaksi eri tekstiriviä toimi inspiraationa laskimen näyttöön
 
-### Dokumentaatio
+## Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/vaatimusmaarittely.md)
 
@@ -12,11 +12,11 @@ JavaFX:llä toteutetulla käyttöliittymällä varustettu laskin. </br>Windows10
 
 [Arkkitehtuuri](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/arkkitehtuuri.md)
 
-### Releaset
+## Releaset
 
 [Viikko 5](https://github.com/vexoo/ot-harjoitustyo/releases/tag/viikko5)
 
-### Komentorivitoiminnot
+## Komentorivitoiminnot
 
 Osoita komentorivi CalculatorApp kansioon.<br/>
 ##### Avaa ohjelma:
