@@ -19,20 +19,20 @@ JavaFX:llä toteutetulla käyttöliittymällä varustettu laskin. </br>Windows10
 ## Komentorivitoiminnot
 
 Osoita komentorivi CalculatorApp kansioon.<br/>
-##### Avaa ohjelma:
+#### Avaa ohjelma:
 
 ```
 mvn compile exec:java -Dexec.mainClass=calculatorapp.ui.CalcUI
 ```
 
-##### Generoi suoritettava jar:
+#### Generoi suoritettava jar:
 
 ```
 mvn package
 ```
 Sijainti - _target/CalculatorApp-1.0-SNAPSHOT.jar_
 
-##### Suorita testit:
+#### Suorita testit:
 
 ```
 mvn test
@@ -40,21 +40,21 @@ mvn test
 Sijainti - _target/site/jacoco/index.html_
 
 
-##### Testikattavuusraportti:
+#### Testikattavuusraportti:
 ```
 mvn jacoco:report
 ```
 Sijainti - _target/site/jacoco/index.html_
 
 
-##### Checkstyle:
+#### Checkstyle:
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
 Sijainti - _target/site/checkstyle.html_
 
 
-##### JavaDoc:
+#### JavaDoc:
 
 ```
 mvn javadoc:javadoc
