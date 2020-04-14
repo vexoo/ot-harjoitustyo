@@ -1,42 +1,52 @@
-///*
-// * To change this license header, choose License Headers in Project Properties.
-// * To change this template file, choose Tools | Templates
-// * and open the template in the editor.
-// */
-//package calculatorapp.controller;
-//
-//import org.junit.After;
-//import org.junit.AfterClass;
-//import org.junit.Before;
-//import javafx.scene.control.TextField;
-//import org.junit.BeforeClass;
-//import org.junit.Test;
-//import static org.junit.Assert.*;
-//import org.junit.runner.RunWith;
-//import calculatorapp.ui.CalcUI;
-//import calculatorapp.Main;
-//import de.saxsys.javafx.test.JfxRunner;
-//
-///**
-// *
-// * @author Jani
-// */
-//@RunWith(JfxRunner.class)
-//public class StringsTest {
-//
-//    Calculations calculations;
-//    Operator operator;
-//    TextField mainField, secondField;
-//
-//    @Before
-//    public void setUp() {
-//        calculations = new Calculations();
-//        mainField = new TextField();
-//        secondField = new TextField();
-//    }
-//
-//
-//    @After
-//    public void tearDown() {
-//    }
-//}
+package calculatorapp.controller;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import de.saxsys.javafx.test.JfxRunner;
+import java.math.BigDecimal;
+
+
+@RunWith(JfxRunner.class)
+public class StringsTest {
+
+    Strings strings;
+
+    @Before
+    public void setUp() {
+        strings = new Strings();
+    }
+
+    @Test
+    public void scientificNotation() {
+        BigDecimal value = new BigDecimal("123456789012345678901111111111110");
+        String result = strings.formatIntoCalcDisplay(value);
+        assertEquals("1.2345678901234567890111111111111E+32", result);
+    }
+    
+    @Test
+    public void noDecimals(){
+        BigDecimal value = new BigDecimal("135.0");
+        String result = strings.formatIntoCalcDisplay(value);
+        assertEquals("135", result);
+    }
+    
+    @Test
+    public void removePointlessDecimals(){
+        BigDecimal value = new BigDecimal("135.2000");
+        String result = strings.formatIntoCalcDisplay(value);
+        assertEquals("135.2", result);
+    }
+    
+    @Test
+    public void getValueTest(){
+        String value = "135.20";
+        assertEquals("135.2", strings.getValue(value));
+    }
+
+    @After
+    public void tearDown() {
+    }
+}
