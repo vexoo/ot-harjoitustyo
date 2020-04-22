@@ -1,15 +1,16 @@
 package calculatorapp.controller;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import ch.obermuhlner.math.big.BigDecimalMath;
 import javafx.scene.control.TextField;
 import calculatorapp.operator.*;
+import calculatorapp.database.Insert;
 import java.math.MathContext;
 
 public class Calculations {
 
     private Operator currentOperator;
+    private final Insert insert = new Insert();
 
     /**
      * Ottaa syötetyt luvut kummastakin TextFieldistä ja palauttaa
@@ -32,9 +33,15 @@ public class Calculations {
         BigDecimal firstVal = BigDecimalMath.toBigDecimal(fVal);
         BigDecimal secondVal = BigDecimalMath.toBigDecimal(sVal);
         BigDecimal result = currentOperator.applyOperator(firstVal, secondVal, currentOperator);
-        return Strings.formatIntoCalcDisplay(result);
+        String resultAsString = Strings.formatIntoCalcDisplay(result);
+        insertIntoDB(secondField.getText(), Strings.formatIntoCalcDisplay(secondVal), resultAsString);
+        return resultAsString;
     }
 
+    private void insertIntoDB(String firstVal, String secondVal, String result){
+        String operation = firstVal + " " + secondVal + " = ";
+        insert.insert(operation, result);
+    }
 
     /**
      * Laskee mainFieldin luvun neliöjuuren. Jos ylemmässä textFieldissä on
