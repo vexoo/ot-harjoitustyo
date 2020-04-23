@@ -5,11 +5,13 @@ import ch.obermuhlner.math.big.BigDecimalMath;
 import javafx.scene.control.TextField;
 import calculatorapp.operator.*;
 import calculatorapp.database.Insert;
+import calculatorapp.ui.CalcUI;
 import java.math.MathContext;
 
 public class Calculations {
 
     private Operator currentOperator;
+    private CalcUI calcUi;
     private final Insert insert = new Insert();
 
     /**
@@ -40,6 +42,7 @@ public class Calculations {
 
     private void insertIntoDB(String firstVal, String secondVal, String result){
         String operation = firstVal + " " + secondVal + " = ";
+        calcUi.addData(operation, result);
         insert.insert(operation, result);
     }
 

@@ -24,16 +24,16 @@ public class Connect {
         }
     }
 
-//    public Connection connect() {
-//        String url = "jdbc:sqlite:history.db";
-//
-//        Connection conn = null;
-//        try {
-//            conn = DriverManager.getConnection(url);
-//        } catch (SQLException e) {
-//            System.out.println(e.getMessage());
-//        }
-//        return conn;
-//    }
+    public Connection connect() {
+        String url = "jdbc:sqlite:history.db";
+
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return conn;
+    }
 
 }

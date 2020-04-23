@@ -34,6 +34,7 @@ import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -60,9 +61,6 @@ public class CalcUI extends Application {
     private GridPane buttons;
     private ObservableList<ObservableList> data;
     private TableView tableView;
-    private static Connection conn;
-    private static ResultSet rs;
-    private ObservableList<String> bookList;
 
     public static void main(String[] args) {
         launch(args);
@@ -88,8 +86,7 @@ public class CalcUI extends Application {
         connect.createNewDatabase();
 
         tableView = new TableView();
-        TableColumn operationCol = new TableColumn("operation");
-        TableColumn resultCol = new TableColumn("result");
+        buildData();
 
         BorderPane root = new BorderPane();
         root.setPadding(new Insets(10));
@@ -103,6 +100,64 @@ public class CalcUI extends Application {
         primaryStage.setMinWidth(465);
         primaryStage.setResizable(true);
         primaryStage.show();
+    }
+
+    //CONNECTION DATABASE
+    public void buildData() {
+        Connection c;
+        data = FXCollections.observableArrayList();
+        try {
+            c = connect.connect();
+            //SQL FOR SELECTING ALL OF CUSTOMER
+            String SQL = "SELECT * from history";
+            //ResultSet
+            ResultSet rs = c.createStatement().executeQuery(SQL);
+
+            /**
+             * ********************************
+             * TABLE COLUMN ADDED DYNAMICALLY * ********************************
+             */
+            for (int i = 1; i < 3; i++) {
+                //We are using non property style for making dynamic table
+                final int j = i;
+                TableColumn col = new TableColumn(rs.getMetaData().getColumnName(i + 1));
+                col.setCellValueFactory(new Callback<CellDataFeatures<ObservableList, String>, ObservableValue<String>>() {
+                    public ObservableValue<String> call(CellDataFeatures<ObservableList, String> param) {
+                        return new SimpleStringProperty(param.getValue().get(j).toString());
+                    }
+                });
+
+                tableView.getColumns().addAll(col);
+            }
+
+            /**
+             * ******************************
+             * Data added to ObservableList * ******************************
+             */
+            while (rs.next()) {
+                //Iterate Row
+                ObservableList<String> row = FXCollections.observableArrayList();
+                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                    //Iterate Column
+                    row.add(rs.getString(i));
+                }
+                data.add(row);
+
+            }
+
+            //FINALLY ADDED TO TableView
+            tableView.setItems(data);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error on Building Data");
+        }
+    }
+
+    public void addData(String operation, String result) {
+        ObservableList<String> row = FXCollections.observableArrayList();
+        row.add(operation);
+        row.add(result);
+        data.add(row);
     }
 
     private TextField createTextField(Font font) {
