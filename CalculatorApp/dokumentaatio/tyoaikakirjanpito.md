@@ -19,4 +19,5 @@
 | 14.4. | 2 | viikko5 release, viimeiset testit, sekvenssikaavio |
 | 23.4. | 3 | koodikatselmointi |
 | 25.4. | 9 | laskuhistoria/tietokanta implementoitu |
+| 25.4. | 1 | javadoc tietokantaluokalle |
 | yht   | 56 | | 
