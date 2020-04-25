@@ -20,4 +20,5 @@
 | 23.4. | 3 | koodikatselmointi |
 | 25.4. | 9 | laskuhistoria/tietokanta implementoitu |
 | 25.4. | 1 | javadoc tietokantaluokalle |
-| yht   | 57 | | 
+| 26.4. | 2 | arkkitehtuurikuvaus aloitettu |
+| yht   | 59 | | 
