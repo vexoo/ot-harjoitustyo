@@ -18,6 +18,8 @@ JavaFX:llä toteutetulla käyttöliittymällä varustettu laskin. </br>Windows10
 
 [Viikko 5](https://github.com/vexoo/ot-harjoitustyo/releases/tag/viikko5)
 
+[Viikko 6](https://github.com/vexoo/ot-harjoitustyo/releases/tag/viikko6)
+
 ## Komentorivitoiminnot
 
 Osoita komentorivi CalculatorApp kansioon.<br/>
