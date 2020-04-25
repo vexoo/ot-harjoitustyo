@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 import ch.obermuhlner.math.big.BigDecimalMath;
 import javafx.scene.control.TextField;
 import calculatorapp.operator.*;
-import calculatorapp.ui.CalcUI;
 import java.math.MathContext;
 
 public class Calculations {

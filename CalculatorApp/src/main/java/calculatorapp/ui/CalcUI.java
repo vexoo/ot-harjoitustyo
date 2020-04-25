@@ -14,7 +14,6 @@ import calculatorapp.operator.Operator;
 import calculatorapp.database.*;
 import java.util.Locale;
 import javafx.scene.text.Font;
-import java.sql.SQLException;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
