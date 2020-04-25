@@ -1,22 +1,26 @@
 package calculatorapp.controller;
 
+import calculatorapp.database.DatabaseConnection;
 import java.math.BigDecimal;
 import ch.obermuhlner.math.big.BigDecimalMath;
 import javafx.scene.control.TextField;
 import calculatorapp.operator.*;
-import calculatorapp.database.Insert;
 import calculatorapp.ui.CalcUI;
 import java.math.MathContext;
 
 public class Calculations {
 
     private Operator currentOperator;
-    private CalcUI calcUi = new CalcUI();
-    private final Insert insert = new Insert();
+    private DatabaseConnection connect;
+
+    public Calculations(DatabaseConnection connection) {
+        this.connect = connection;
+    }
 
     /**
      * Ottaa syötetyt luvut kummastakin TextFieldistä ja palauttaa
-     * laskutoimituksen vastauksen mainFieldiin.
+     * laskutoimituksen vastauksen. CalcUI-luokka syöttää vastauksen
+     * mainFieldiin.
      *
      * @param mainField alemman TextFieldin eli toinen luku
      * @param secondField ylemmän TextFieldin eli ensimmäinen luku. Sisältää
@@ -37,19 +41,18 @@ public class Calculations {
         BigDecimal secondVal = BigDecimalMath.toBigDecimal(sVal);
         BigDecimal result = currentOperator.applyOperator(firstVal, secondVal, currentOperator);
         String resultAsString = Strings.formatIntoCalcDisplay(result);
-        System.out.println(calcUi.getData());
         insertIntoDB(secondField.getText(), Strings.formatIntoCalcDisplay(secondVal), resultAsString);
-        System.out.println(calcUi.getData());
         return resultAsString;
     }
 
+    /**
+     * Muotoilee laskutoimituksen ja kutsuu DatabaseConnection-luokan insert
+     * metodia lisäämään laskutoimituksen ja tuloksen tietokantaan.
+     *
+     */
     private void insertIntoDB(String firstVal, String secondVal, String result) {
         String operation = firstVal + " " + secondVal + " = ";
-//        System.out.println(operation);
-//        System.out.println(result);
-//        System.out.println(calcUi.getData());
-//        calcUi.addData(operation, result);
-        insert.insert(operation, result);
+        connect.insert(operation, result);
     }
 
     /**
