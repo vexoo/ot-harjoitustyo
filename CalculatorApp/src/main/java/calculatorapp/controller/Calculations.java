@@ -51,7 +51,7 @@ public class Calculations {
      */
     private void insertIntoDB(String firstVal, String secondVal, String result) {
         String operation = firstVal + " " + secondVal + " = ";
-        connect.insert(operation, result, connect.getUrl());
+        connect.insert(operation, result);
     }
 
     /**

@@ -23,13 +23,18 @@ public class DatabaseConnection {
 
     public DatabaseConnection() {
         data = FXCollections.observableArrayList();
+//        try {
+//            conn = DriverManager.getConnection(url);
+//        } catch (SQLException e){
+//            
+//        } 
     }
 
     /**
      * Luo tietokannan .db tiedoston jos sitä ei ole olemassa. Sijainti on
      * CalculatorApp-kansio.
      */
-    public static void createNewDatabase(String url) {
+    public static void createNewDatabase() {
 
         Statement stmt = null;
         String sql = "CREATE TABLE IF NOT EXISTS history (\n"
@@ -56,12 +61,13 @@ public class DatabaseConnection {
      * toinen arvo - = "
      * @param result laskutoimituksen tulos
      */
-    public void insert(String operation, String result, String url) {
+    public void insert(String operation, String result) {
         ObservableList<String> row = FXCollections.observableArrayList();
         row.add(operation);
         row.add(result);
         data.add(row);
-        String sql = checkDb(url);
+
+        String sql = "INSERT INTO history(operation,result) VALUES(?,?)";
         PreparedStatement pstmt = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -69,6 +75,7 @@ public class DatabaseConnection {
             pstmt.setString(1, operation);
             pstmt.setString(2, result);
             pstmt.executeUpdate();
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -77,18 +84,27 @@ public class DatabaseConnection {
         }
     }
 
-    private String checkDb(String url) {
-        if (url.equals("jdbc:sqlite:history.db")) {
-            return "INSERT INTO history(operation,result) VALUES(?,?)";
-        } else {
-            return "INSERT INTO testdb(operation,result) VALUES(?,?)";
+    /**
+     * Tietokannan yhteyden tarkistusmetodi.
+     *
+     * @return palauttaa yhteyden, tai null jos ei yhteyttä
+     */
+    public Connection connect() {
+        String url = "jdbc:sqlite:history.db";
+
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
+        return conn;
     }
 
     /**
      * Tyhjentää tietokannan sekä data-ObservableArrayListin.
      */
-    public void delete(String url) {
+    public void delete() {
         data.clear();
         String sql = "DELETE from history";
         PreparedStatement pstmt = null;
@@ -96,6 +112,7 @@ public class DatabaseConnection {
             conn = DriverManager.getConnection(url);
             pstmt = conn.prepareStatement(sql);
             pstmt.executeUpdate();
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -110,7 +127,7 @@ public class DatabaseConnection {
      *
      * @param tableView Käyttöliittymän alapuolella oleva taulukko
      */
-    public void buildDataFromDatabase(TableView tableView, String url) {
+    public void buildDataFromDatabase(TableView tableView) {
         ResultSet rs = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -163,9 +180,5 @@ public class DatabaseConnection {
             data.add(row);
         }
         tableView.setItems(data);
-    }
-
-    public static String getUrl() {
-        return url;
     }
 }

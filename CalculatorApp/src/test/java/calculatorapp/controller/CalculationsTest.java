@@ -9,22 +9,19 @@ import org.junit.runner.RunWith;
 import de.saxsys.javafx.test.JfxRunner;
 import calculatorapp.operator.*;
 import calculatorapp.database.DatabaseConnection;
-import java.io.File;
 
 @RunWith(JfxRunner.class)
 public class CalculationsTest {
 
     Calculations calculations;
     Operator operator;
-    DatabaseConnection connect;
+    DatabaseConnection connection;
     TextField mainField, secondField;
-    String url = "jdbc:sqlite:test.db";
 
     @Before
     public void setUp() {
-        connect = new DatabaseConnection();
-        DatabaseConnection.createNewDatabase(url);
-        calculations = new Calculations(connect);
+        connection = new DatabaseConnection();
+        calculations = new Calculations(connection);
         mainField = new TextField();
         secondField = new TextField();
     }
@@ -161,6 +158,6 @@ public class CalculationsTest {
 
     @After
     public void tearDown() {
-        boolean result = new File("test.db").delete();
+        connection.delete();
     }
 }
