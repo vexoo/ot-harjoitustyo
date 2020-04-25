@@ -18,16 +18,11 @@ import org.apache.commons.dbutils.DbUtils;
 public class DatabaseConnection {
 
     private ObservableList<ObservableList> data;
-    private static final String url = "jdbc:sqlite:history.db";
+    private static String url = "jdbc:sqlite:history.db";
     private static Connection conn = null;
 
     public DatabaseConnection() {
         data = FXCollections.observableArrayList();
-//        try {
-//            conn = DriverManager.getConnection(url);
-//        } catch (SQLException e){
-//            
-//        } 
     }
 
     /**
@@ -82,23 +77,6 @@ public class DatabaseConnection {
             DbUtils.closeQuietly(pstmt);
             DbUtils.closeQuietly(conn);
         }
-    }
-
-    /**
-     * Tietokannan yhteyden tarkistusmetodi.
-     *
-     * @return palauttaa yhteyden, tai null jos ei yhteyttä
-     */
-    public Connection connect() {
-        String url = "jdbc:sqlite:history.db";
-
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(url);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return conn;
     }
 
     /**

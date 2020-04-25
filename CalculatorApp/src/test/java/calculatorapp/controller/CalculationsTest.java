@@ -22,6 +22,7 @@ public class CalculationsTest {
     public void setUp() {
         connection = new DatabaseConnection();
         calculations = new Calculations(connection);
+        connection.createNewDatabase();
         mainField = new TextField();
         secondField = new TextField();
     }
