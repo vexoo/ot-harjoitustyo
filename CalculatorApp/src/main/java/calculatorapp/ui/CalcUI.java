@@ -12,6 +12,7 @@ import calculatorapp.controller.Calculations;
 import calculatorapp.controller.Strings;
 import calculatorapp.operator.Operator;
 import calculatorapp.database.*;
+import java.sql.SQLException;
 import java.util.Locale;
 import javafx.scene.text.Font;
 import javafx.application.Application;
@@ -38,6 +39,7 @@ public class CalcUI extends Application {
     public void start(Stage primaryStage) {
 
         Locale.setDefault(Locale.US);
+
         connect = new DatabaseConnection();
         calculations = new Calculations(connect);
         buttons = createGrid();

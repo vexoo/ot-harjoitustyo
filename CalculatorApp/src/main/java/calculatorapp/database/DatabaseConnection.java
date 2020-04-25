@@ -18,11 +18,16 @@ import org.apache.commons.dbutils.DbUtils;
 public class DatabaseConnection {
 
     private ObservableList<ObservableList> data;
-    private DbUtils dbUtils;
+    private static final String url = "jdbc:sqlite:history.db";
+    private static Connection conn = null;
 
     public DatabaseConnection() {
         data = FXCollections.observableArrayList();
-        dbUtils = new DbUtils();
+//        try {
+//            conn = DriverManager.getConnection(url);
+//        } catch (SQLException e){
+//            
+//        } 
     }
 
     /**
@@ -31,9 +36,7 @@ public class DatabaseConnection {
      */
     public static void createNewDatabase() {
 
-        Connection conn = null;
         Statement stmt = null;
-        String url = "jdbc:sqlite:history.db";
         String sql = "CREATE TABLE IF NOT EXISTS history (\n"
                 + "	operation text NOT NULL,\n"
                 + "	result text NOT NULL\n"
@@ -65,19 +68,25 @@ public class DatabaseConnection {
         data.add(row);
 
         String sql = "INSERT INTO history(operation,result) VALUES(?,?)";
-
-        try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        PreparedStatement pstmt = null;
+        try {
+            conn = DriverManager.getConnection(url);
+            pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, operation);
             pstmt.setString(2, result);
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        } finally {
+            DbUtils.closeQuietly(pstmt);
+            DbUtils.closeQuietly(conn);
         }
     }
 
     /**
      * Tietokannan yhteyden tarkistusmetodi.
+     *
      * @return palauttaa yhteyden, tai null jos ei yhteyttä
      */
     public Connection connect() {
@@ -98,11 +107,17 @@ public class DatabaseConnection {
     public void delete() {
         data.clear();
         String sql = "DELETE from history";
-        try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        PreparedStatement pstmt = null;
+        try {
+            conn = DriverManager.getConnection(url);
+            pstmt = conn.prepareStatement(sql);
             pstmt.executeUpdate();
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        } finally {
+            DbUtils.closeQuietly(pstmt);
+            DbUtils.closeQuietly(conn);
         }
     }
 
@@ -113,12 +128,11 @@ public class DatabaseConnection {
      * @param tableView Käyttöliittymän alapuolella oleva taulukko
      */
     public void buildDataFromDatabase(TableView tableView) {
-        Connection c;
         ResultSet rs = null;
         try {
-            c = connect();
+            conn = DriverManager.getConnection(url);
             String sql = "SELECT * from history";
-            rs = c.createStatement().executeQuery(sql);
+            rs = conn.createStatement().executeQuery(sql);
             buildTableViewColumns(rs, tableView);
             addDataToTableView(rs, tableView);
         } catch (Exception e) {
@@ -126,6 +140,7 @@ public class DatabaseConnection {
             System.out.println("Error on Building Data");
         } finally {
             DbUtils.closeQuietly(rs);
+            DbUtils.closeQuietly(conn);
         }
     }
 
