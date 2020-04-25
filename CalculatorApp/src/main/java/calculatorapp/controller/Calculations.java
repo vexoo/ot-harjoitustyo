@@ -17,10 +17,6 @@ public class Calculations {
         this.connect = connection;
     }
 
-    public Calculations() {
-
-    }
-
     /**
      * Ottaa syötetyt luvut kummastakin TextFieldistä ja palauttaa
      * laskutoimituksen vastauksen. CalcUI-luokka syöttää vastauksen

@@ -8,17 +8,20 @@ import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 import de.saxsys.javafx.test.JfxRunner;
 import calculatorapp.operator.*;
+import calculatorapp.database.DatabaseConnection;
 
 @RunWith(JfxRunner.class)
 public class CalculationsTest {
 
     Calculations calculations;
     Operator operator;
+    DatabaseConnection connection;
     TextField mainField, secondField;
 
     @Before
     public void setUp() {
-        calculations = new Calculations();
+        connection = new DatabaseConnection();
+        calculations = new Calculations(connection);
         mainField = new TextField();
         secondField = new TextField();
     }
@@ -155,5 +158,6 @@ public class CalculationsTest {
 
     @After
     public void tearDown() {
+        connection.delete();
     }
 }

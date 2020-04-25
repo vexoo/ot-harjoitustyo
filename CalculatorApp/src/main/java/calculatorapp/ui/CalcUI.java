@@ -1,15 +1,12 @@
 package calculatorapp.ui;
 
-import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import javafx.geometry.Pos;
 import calculatorapp.controller.Calculations;
 import calculatorapp.controller.Strings;
@@ -17,26 +14,10 @@ import calculatorapp.operator.Operator;
 import calculatorapp.database.*;
 import java.util.Locale;
 import javafx.scene.text.Font;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.Statement;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import javafx.collections.ObservableList;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TableView;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import javafx.application.Application;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.stage.Stage;
-import javafx.util.Callback;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 public class CalcUI extends Application {
@@ -77,6 +58,7 @@ public class CalcUI extends Application {
         tableView.setMinHeight(170);
         tableView.setMaxHeight(170);
         connect.buildDataFromDatabase(tableView);
+
         Button clearH = createButton("Clear history");
         clearH.setMaxHeight(150);
         clearH.setOnAction(e -> {
