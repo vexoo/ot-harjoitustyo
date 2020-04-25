@@ -161,11 +161,12 @@ public class CalcUI extends Application {
         ObservableList<String> row = FXCollections.observableArrayList();
 //        System.out.println(operation);
 //        System.out.println(result);
-        row.add("55");
+        row.add("");
         row.add(operation);
         row.add(result);
 //        System.out.println(row);
         data.add(row);
+        System.out.println(data);
     }
 
     private TextField createTextField(Font font) {
@@ -272,6 +273,11 @@ public class CalcUI extends Application {
         eq.setOnAction(e -> {
             if (!secondField.getText().isEmpty()) {
                 mainField.setText(calculations.calculate(mainField, secondField));
+                String operation = secondField.getText() + " = ";
+                System.out.println(operation);
+                String result = mainField.getText();
+                System.out.println(result);
+                addData(operation, result);
                 resultDisplayed = true;
                 operatorSelected = false;
                 secondField.clear();

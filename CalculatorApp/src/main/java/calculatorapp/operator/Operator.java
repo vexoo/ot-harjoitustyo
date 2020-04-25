@@ -3,6 +3,7 @@ package calculatorapp.operator;
 import ch.obermuhlner.math.big.BigDecimalMath;
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.util.function.DoubleBinaryOperator;
 
 public enum Operator {
     POWER("^"),

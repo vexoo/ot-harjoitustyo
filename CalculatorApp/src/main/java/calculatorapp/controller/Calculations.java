@@ -45,10 +45,10 @@ public class Calculations {
 
     private void insertIntoDB(String firstVal, String secondVal, String result) {
         String operation = firstVal + " " + secondVal + " = ";
-        System.out.println(operation);
-        System.out.println(result);
-        System.out.println(calcUi.getData());
-        calcUi.addData(operation, result);
+//        System.out.println(operation);
+//        System.out.println(result);
+//        System.out.println(calcUi.getData());
+//        calcUi.addData(operation, result);
         insert.insert(operation, result);
     }
 
