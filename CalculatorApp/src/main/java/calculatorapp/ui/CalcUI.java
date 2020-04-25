@@ -53,17 +53,17 @@ public class CalcUI extends Application {
         createNumberButtons();
         createOperatorButtons();
         createOtherButtons();
-        connect.createNewDatabase();
+        connect.createNewDatabase(connect.getUrl());
 
         tableView = new TableView();
         tableView.setMinHeight(170);
         tableView.setMaxHeight(170);
-        connect.buildDataFromDatabase(tableView);
+        connect.buildDataFromDatabase(tableView, connect.getUrl());
 
         Button clearH = createButton("Clear history");
         clearH.setMaxHeight(150);
         clearH.setOnAction(e -> {
-            connect.delete();
+            connect.delete(connect.getUrl());
         });
         VBox historyBox = new VBox();
         historyBox.getChildren().addAll(tableView, clearH);
