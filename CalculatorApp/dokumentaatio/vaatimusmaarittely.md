@@ -27,3 +27,5 @@ Sovellus on nimensä mukaisesti laskin JavaFX:llä toteutetulla käyttöliittym�
 
 - Laskin käyttää tällä hetkellä pelkästään double, liian suuret tai liian pienet luvut eivät toimi. Seuraava askel on korjata tämä
   - Hyvin suuret ja pienet luvut implementoitu. Double vaihdettu BigDecimaliksi.
+  
+- Laskuhistorian implementointi. Tallenna laskut tietokantaan ja lataa historia omaan ikkunaansa aina kun ohjelma avataan. Lisää myös nappi historian poistoon
