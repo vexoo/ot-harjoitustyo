@@ -11,7 +11,7 @@ import java.math.MathContext;
 public class Calculations {
 
     private Operator currentOperator;
-    private CalcUI calcUi;
+    private CalcUI calcUi = new CalcUI();
     private final Insert insert = new Insert();
 
     /**
@@ -20,7 +20,8 @@ public class Calculations {
      *
      * @param mainField alemman TextFieldin eli toinen luku
      * @param secondField ylemmän TextFieldin eli ensimmäinen luku. Sisältää
-     * myös nykyisen operaattorin, jonka metodi poistaa regex avulla ennen laskutoimitusta
+     * myös nykyisen operaattorin, jonka metodi poistaa regex avulla ennen
+     * laskutoimitusta
      * @return palauttaa vastauksen String-muodossa joka tulee näkyville
      * mainFieldissä. Muotoilun hoitaa Strings-luokka
      */
@@ -36,12 +37,17 @@ public class Calculations {
         BigDecimal secondVal = BigDecimalMath.toBigDecimal(sVal);
         BigDecimal result = currentOperator.applyOperator(firstVal, secondVal, currentOperator);
         String resultAsString = Strings.formatIntoCalcDisplay(result);
+        System.out.println(calcUi.getData());
         insertIntoDB(secondField.getText(), Strings.formatIntoCalcDisplay(secondVal), resultAsString);
+        System.out.println(calcUi.getData());
         return resultAsString;
     }
 
-    private void insertIntoDB(String firstVal, String secondVal, String result){
+    private void insertIntoDB(String firstVal, String secondVal, String result) {
         String operation = firstVal + " " + secondVal + " = ";
+        System.out.println(operation);
+        System.out.println(result);
+        System.out.println(calcUi.getData());
         calcUi.addData(operation, result);
         insert.insert(operation, result);
     }

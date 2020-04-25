@@ -59,7 +59,7 @@ public class CalcUI extends Application {
     private TextField mainField;
     private TextField secondField;
     private GridPane buttons;
-    private ObservableList<ObservableList> data;
+    public ObservableList<ObservableList> data = FXCollections.observableArrayList();
     private TableView tableView;
 
     public static void main(String[] args) {
@@ -86,13 +86,15 @@ public class CalcUI extends Application {
         connect.createNewDatabase();
 
         tableView = new TableView();
+//        data = FXCollections.observableArrayList();
         buildData();
-
+        System.out.println(data);
         BorderPane root = new BorderPane();
         root.setPadding(new Insets(10));
         root.setTop(displayFields);
         root.setCenter(buttons);
         root.setBottom(tableView);
+        System.out.println(data);
 
         Scene scene = new Scene(root, 465, 430);
         primaryStage.setScene(scene);
@@ -100,12 +102,13 @@ public class CalcUI extends Application {
         primaryStage.setMinWidth(465);
         primaryStage.setResizable(true);
         primaryStage.show();
+        System.out.println(data);
     }
 
     //CONNECTION DATABASE
     public void buildData() {
         Connection c;
-        data = FXCollections.observableArrayList();
+//        data = FXCollections.observableArrayList();
         try {
             c = connect.connect();
             //SQL FOR SELECTING ALL OF CUSTOMER
@@ -146,6 +149,7 @@ public class CalcUI extends Application {
             }
 
             //FINALLY ADDED TO TableView
+            //System.out.println(data);
             tableView.setItems(data);
         } catch (Exception e) {
             e.printStackTrace();
@@ -155,8 +159,12 @@ public class CalcUI extends Application {
 
     public void addData(String operation, String result) {
         ObservableList<String> row = FXCollections.observableArrayList();
+//        System.out.println(operation);
+//        System.out.println(result);
+        row.add("55");
         row.add(operation);
         row.add(result);
+//        System.out.println(row);
         data.add(row);
     }
 
@@ -167,6 +175,10 @@ public class CalcUI extends Application {
         textField.setStyle("-fx-text-box-border: transparent; -fx-background-color: -fx-control-inner-background;");
         textField.setFont(font);
         return textField;
+    }
+    
+    public String getData(){
+        return data.toString();
     }
 
     private GridPane createGrid() {
@@ -205,6 +217,7 @@ public class CalcUI extends Application {
             });
             buttons.add(button, 3, buttonRow++);
         }
+        System.out.println(getData());
     }
 
     private void createNumberButtons() {
