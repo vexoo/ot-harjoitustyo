@@ -25,7 +25,7 @@ Halutut syötteet syötetään nappeja painamalla. Sovellus ei tue syötteitä n
 
 ## Sovelluslogiikka
 
-<img src="https://user-images.githubusercontent.com/51514701/79177496-9a7f5e80-7e0b-11ea-92c5-6feda7eca108.png" width="900">
+<img src="https://user-images.githubusercontent.com/51514701/79177496-9a7f5e80-7e0b-11ea-92c5-6feda7eca108.png" width="1000">
 
 Sovellus muuttaa Stringinä olevat luvut BigDecimaleiksi, laskee laskutoimituksen ja muuttaa luvun takaisin Stringiksi, joka syötetään sitten TextFieldiin.
 
