@@ -29,3 +29,4 @@ Sovellus on nimensä mukaisesti laskin JavaFX:llä toteutetulla käyttöliittym�
   - Hyvin suuret ja pienet luvut implementoitu. Double vaihdettu BigDecimaliksi.
   
 - Laskuhistorian implementointi. Tallenna laskut tietokantaan ja lataa historia omaan ikkunaansa aina kun ohjelma avataan. Lisää myös nappi historian poistoon
+  - Laskuhistoria implementoitu
