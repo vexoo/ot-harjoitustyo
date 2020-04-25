@@ -18,4 +18,5 @@
 | 6.4. | 2 | refaktorointia |
 | 14.4. | 2 | viikko5 release, viimeiset testit, sekvenssikaavio |
 | 23.4. | 3 | koodikatselmointi |
-| yht   | 47 | | 
+| 25.4. | 9 | laskuhistoria/tietokanta implementoitu |
+| yht   | 56 | | 
