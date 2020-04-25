@@ -10,7 +10,7 @@ JavaFX:llä toteutetulla käyttöliittymällä varustettu laskin. </br>Windows10
 
 [Työaikakirjanpito](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/tyoaikakirjanpito.md)
 
-[Arkkitehtuuri](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/arkkitehtuuri.md)
+[Arkkitehtuurikuvaus](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/arkkitehtuuri.md)
 
 [Käyttöohje](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/kayttoohje.md)
 
