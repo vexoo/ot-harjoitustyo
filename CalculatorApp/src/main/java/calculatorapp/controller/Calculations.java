@@ -1,23 +1,31 @@
 package calculatorapp.controller;
 
+import calculatorapp.database.DatabaseConnection;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import ch.obermuhlner.math.big.BigDecimalMath;
 import javafx.scene.control.TextField;
 import calculatorapp.operator.*;
+import calculatorapp.ui.CalcUI;
 import java.math.MathContext;
 
 public class Calculations {
 
     private Operator currentOperator;
+    private DatabaseConnection connect;
+
+    public Calculations(DatabaseConnection connection) {
+        this.connect = connection;
+    }
 
     /**
      * Ottaa syötetyt luvut kummastakin TextFieldistä ja palauttaa
-     * laskutoimituksen vastauksen mainFieldiin.
+     * laskutoimituksen vastauksen. CalcUI-luokka syöttää vastauksen
+     * mainFieldiin.
      *
      * @param mainField alemman TextFieldin eli toinen luku
      * @param secondField ylemmän TextFieldin eli ensimmäinen luku. Sisältää
-     * myös nykyisen operaattorin, jonka metodi poistaa regex avulla ennen laskutoimitusta
+     * myös nykyisen operaattorin, jonka metodi poistaa regex avulla ennen
+     * laskutoimitusta
      * @return palauttaa vastauksen String-muodossa joka tulee näkyville
      * mainFieldissä. Muotoilun hoitaa Strings-luokka
      */
@@ -32,9 +40,20 @@ public class Calculations {
         BigDecimal firstVal = BigDecimalMath.toBigDecimal(fVal);
         BigDecimal secondVal = BigDecimalMath.toBigDecimal(sVal);
         BigDecimal result = currentOperator.applyOperator(firstVal, secondVal, currentOperator);
-        return Strings.formatIntoCalcDisplay(result);
+        String resultAsString = Strings.formatIntoCalcDisplay(result);
+        insertIntoDB(secondField.getText(), Strings.formatIntoCalcDisplay(secondVal), resultAsString);
+        return resultAsString;
     }
 
+    /**
+     * Muotoilee laskutoimituksen ja kutsuu DatabaseConnection-luokan insert
+     * metodia lisäämään laskutoimituksen ja tuloksen tietokantaan.
+     *
+     */
+    private void insertIntoDB(String firstVal, String secondVal, String result) {
+        String operation = firstVal + " " + secondVal + " = ";
+        connect.insert(operation, result);
+    }
 
     /**
      * Laskee mainFieldin luvun neliöjuuren. Jos ylemmässä textFieldissä on

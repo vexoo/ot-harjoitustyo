@@ -14,17 +14,41 @@ import javafx.geometry.Pos;
 import calculatorapp.controller.Calculations;
 import calculatorapp.controller.Strings;
 import calculatorapp.operator.Operator;
+import calculatorapp.database.*;
 import java.util.Locale;
 import javafx.scene.text.Font;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.Statement;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TableView;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Scene;
+import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.stage.Stage;
+import javafx.util.Callback;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 public class CalcUI extends Application {
 
-    public Calculations calculations;
+    private Calculations calculations;
+    private DatabaseConnection connect;
     static boolean operatorSelected;
     static boolean resultDisplayed;
     private TextField mainField;
     private TextField secondField;
     private GridPane buttons;
+    private TableView tableView;
 
     public static void main(String[] args) {
         launch(args);
@@ -34,7 +58,8 @@ public class CalcUI extends Application {
     public void start(Stage primaryStage) {
 
         Locale.setDefault(Locale.US);
-        calculations = new Calculations();
+        connect = new DatabaseConnection();
+        calculations = new Calculations(connect);
         buttons = createGrid();
 
         mainField = createTextField(new Font("SansSerif", 27));
@@ -46,21 +71,37 @@ public class CalcUI extends Application {
         createNumberButtons();
         createOperatorButtons();
         createOtherButtons();
+        connect.createNewDatabase();
+
+        tableView = new TableView();
+        tableView.setMinHeight(170);
+        tableView.setMaxHeight(170);
+        connect.buildDataFromDatabase(tableView);
+        Button clearH = createButton("Clear history");
+        clearH.setMaxHeight(150);
+        clearH.setOnAction(e -> {
+            connect.delete();
+        });
+        VBox historyBox = new VBox();
+        historyBox.getChildren().addAll(tableView, clearH);
 
         BorderPane root = new BorderPane();
         root.setPadding(new Insets(10));
         root.setTop(displayFields);
         root.setCenter(buttons);
+        root.setBottom(historyBox);
 
         Scene scene = new Scene(root, 465, 430);
         primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
+        primaryStage.setMinHeight(705);
+        primaryStage.setMinWidth(465);
+        primaryStage.setResizable(true);
         primaryStage.show();
     }
 
     private TextField createTextField(Font font) {
         TextField textField = new TextField();
-        textField.setMaxWidth(465);
+        textField.setMaxWidth(Double.POSITIVE_INFINITY);
         textField.setEditable(false);
         textField.setStyle("-fx-text-box-border: transparent; -fx-background-color: -fx-control-inner-background;");
         textField.setFont(font);
@@ -166,7 +207,9 @@ public class CalcUI extends Application {
         Button plusMinus = createButton("+/-");
         buttons.add(plusMinus, 0, 0);
         plusMinus.setOnAction(e -> {
-            calculations.setToPositiveOrNegative(mainField);
+            if (!mainField.getText().isEmpty()) {
+                calculations.setToPositiveOrNegative(mainField);
+            }
         });
 
         Button clear = createButton("c");
