@@ -20,4 +20,4 @@
 | 23.4. | 3 | koodikatselmointi |
 | 25.4. | 9 | laskuhistoria/tietokanta implementoitu |
 | 25.4. | 1 | javadoc tietokantaluokalle |
-| yht   | 56 | | 
+| yht   | 57 | | 
