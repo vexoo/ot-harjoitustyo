@@ -18,7 +18,7 @@ import org.apache.commons.dbutils.DbUtils;
 public class DatabaseConnection {
 
     private ObservableList<ObservableList> data;
-    private static String url = "jdbc:sqlite:src/main/resources/history.db";
+    private static String url = "jdbc:sqlite:assets/history.db";
     private static Connection conn = null;
 
     public DatabaseConnection() {
