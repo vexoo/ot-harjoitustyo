@@ -73,7 +73,6 @@ public class DatabaseConnection {
             pstmt.setString(1, operation);
             pstmt.setString(2, result);
             pstmt.executeUpdate();
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -93,7 +92,6 @@ public class DatabaseConnection {
             conn = DriverManager.getConnection(url);
             pstmt = conn.prepareStatement(sql);
             pstmt.executeUpdate();
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -140,7 +138,6 @@ public class DatabaseConnection {
                     return new SimpleStringProperty(param.getValue().get(j).toString());
                 }
             });
-            //col.prefWidthProperty().bind(tableView.widthProperty().multiply(0.5));
             if (i == 0) {
                 col.setStyle("-fx-alignment: CENTER-RIGHT;");
             }

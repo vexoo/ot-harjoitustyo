@@ -68,12 +68,15 @@ public class Calculations {
      */
     public String squareRoot(TextField mainField) {
         MathContext mathContext = new MathContext(20);
-        BigDecimal val = BigDecimalMath.toBigDecimal(mainField.getText());
+        BigDecimal val = BigDecimalMath.toBigDecimal(Strings.getValue(mainField.getText()));
+        if (val.equals(BigDecimal.ZERO)){
+            return "0";
+        }
         String operation, result;
         if (val.signum() < 0) {
             return "Invalid input";
         } else {
-            operation = "    " + "\u221A" + mainField.getText() + " =";
+            operation = "\u221A" + mainField.getText() + " =";
             result = Strings.formatIntoCalcDisplay(BigDecimalMath.sqrt(val, mathContext));
             connect.insert(operation, result);
             return result;
