@@ -36,7 +36,7 @@ Ulkoista kirjastoa [big-math](https://github.com/eobermuhlner/big-math#bigdecima
 
 ## Tietojen pysyväistallennus
 
-Sovelluksella lasketut laskut tallennetaan _history.db_-nimiseen tiedostoon _CalculatorApp_ kansiossa(jos sovelluksen käynnistää komentoriviltä) tai samassa sijainnissa kuin sovelluksen avaamiseen käytetty .jar tiedosto. Tietokannassa on kaksi saraketta: operation ja result. Operation tallettaa laskutoimituksen muodossa _luku1 - operaattori - luku2 =_ ja result on nimensä mukaisesti laskutoimituksen tulos.
+Sovelluksella lasketut laskut tallennetaan _history.db_-nimiseen tiedostoon _CalculatorApp_ kansiossa (jos sovelluksen käynnistää komentoriviltä) tai samassa sijainnissa kuin sovelluksen avaamiseen käytetty .jar tiedosto. Tietokannassa on kaksi saraketta: operation ja result. Operation tallettaa laskutoimituksen muodossa _luku1 - operaattori - luku2 =_ ja result on nimensä mukaisesti laskutoimituksen tulos.
 
 Sovellusta avatessa tietokannasta haetaan mahdollinen historia [ResultSettiin](https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/ResultSet.html), joka käydään läpi rivi riviltä. Jokainen rivi tallennetaan [ObservableListiin](https://docs.oracle.com/javase/8/javafx/api/javafx/collections/ObservableList.html) ja rivit sitten tallennetaan vielä ObservableList\<ObservableList\>:iin joka lopuksi lisätään TableViewiin jossa laskuhistoria sitten näkyy.
   
