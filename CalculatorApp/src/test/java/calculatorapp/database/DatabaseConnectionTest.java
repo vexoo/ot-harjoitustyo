@@ -1,6 +1,7 @@
 
-package calculatorapp.controller;
+package calculatorapp.database;
 
+import calculatorapp.controller.Calculations;
 import calculatorapp.database.DatabaseConnection;
 import java.io.File;
 import java.sql.SQLException;
@@ -18,8 +19,10 @@ public class DatabaseConnectionTest {
 
     @Before
     public void setUp() {
-        connection = new DatabaseConnection("jdbc:sqlite:assets/test.db", "test");
-        file = new File("assets/test.db");
+        connection = new DatabaseConnection("jdbc:sqlite:test.db", "test");
+        //connection = new DatabaseConnection("jdbc:sqlite:assets/test.db", "test");
+        //file = new File("assets/test.db");
+        file = new File("test.db");
         connection.createNewDatabase();
         tableView = new TableView();
     }
