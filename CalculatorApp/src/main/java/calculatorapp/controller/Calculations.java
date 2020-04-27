@@ -36,9 +36,14 @@ public class Calculations {
             return "Cannot divide by zero";
         }
 
-        BigDecimal firstVal = BigDecimalMath.toBigDecimal(fVal);
-        BigDecimal secondVal = BigDecimalMath.toBigDecimal(sVal);
-        BigDecimal result = currentOperator.applyOperator(firstVal, secondVal, currentOperator);
+        BigDecimal firstVal, secondVal, result;
+        try {
+            firstVal = BigDecimalMath.toBigDecimal(fVal);
+            secondVal = BigDecimalMath.toBigDecimal(sVal);
+            result = currentOperator.applyOperator(firstVal, secondVal, currentOperator);
+        } catch (ArithmeticException ex) {
+            return "Number overflow";
+        }
         String resultAsString = Strings.formatIntoCalcDisplay(result);
         insertIntoDB(secondField.getText(), Strings.formatIntoCalcDisplay(secondVal), resultAsString);
         return resultAsString;

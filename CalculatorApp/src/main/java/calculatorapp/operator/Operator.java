@@ -25,7 +25,7 @@ public enum Operator {
      * @param operator nykyinen operaattori
      * @return summa/erotus/jne riippuen operaattorista
      */
-    public BigDecimal applyOperator(BigDecimal firstValue, BigDecimal secondValue, Operator operator) {
+    public BigDecimal applyOperator(BigDecimal firstValue, BigDecimal secondValue, Operator operator) throws ArithmeticException {
         MathContext mathContext = new MathContext(20);
         switch (operator) {
             case ADD:

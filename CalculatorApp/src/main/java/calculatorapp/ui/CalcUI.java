@@ -204,11 +204,13 @@ public class CalcUI extends Application {
 
         Button sqrt = createButton("\u221A");
         sqrt.setOnAction(e -> {
-            mainField.setText(calculations.squareRoot(mainField));
-            if (resultDisplayed) {
-                resultDisplayed = false;
-            } else {
-                resultDisplayed = true;
+            if (!mainField.getText().isEmpty()) {
+                mainField.setText(calculations.squareRoot(mainField));
+                if (resultDisplayed) {
+                    resultDisplayed = false;
+                } else {
+                    resultDisplayed = true;
+                }
             }
         });
         buttons.add(sqrt, 1, 0);
