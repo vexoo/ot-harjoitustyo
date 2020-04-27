@@ -141,6 +141,7 @@ public class DatabaseConnection {
             if (i == 0) {
                 col.setStyle("-fx-alignment: CENTER-RIGHT;");
             }
+            col.setSortable(false);
             tableView.getColumns().addAll(col);
         }
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
