@@ -65,7 +65,6 @@ public class DatabaseConnection {
         row.add(result);
         data.add(row);
 
-        //String sql = "INSERT INTO history(operation,result) VALUES(?,?)";
         String sql = "INSERT INTO " + dbName + "(operation,result) VALUES(?,?)";
         PreparedStatement pstmt = null;
         try {

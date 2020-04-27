@@ -55,9 +55,7 @@ public class Calculations {
     }
 
     /**
-     * Laskee mainFieldin luvun neliöjuuren. Jos ylemmässä textFieldissä on
-     * luku, palauttaa metodi laskutoimituksen jossa toinen luku on mainFieldin
-     * neliöjuuri.
+     * Laskee mainFieldin luvun neliöjuuren.
      *
      * @param mainField Alempi textField
      * @return Palauttaa luvun neliöjuuren jos mahdollista, eli luku on suurempi
@@ -66,7 +64,15 @@ public class Calculations {
     public String squareRoot(TextField mainField) {
         MathContext mathContext = new MathContext(20);
         BigDecimal val = BigDecimalMath.toBigDecimal(mainField.getText());
-        return val.signum() < 0 ? "Invalid input" : Strings.formatIntoCalcDisplay(BigDecimalMath.sqrt(val, mathContext));
+        String operation, result;
+        if (val.signum() < 0) {
+            return "Invalid input";
+        } else {
+            operation = "    " + "\u221A" + mainField.getText() + " =";
+            result = Strings.formatIntoCalcDisplay(BigDecimalMath.sqrt(val, mathContext));
+            connect.insert(operation, result);
+            return result;
+        }
     }
 
     /**
