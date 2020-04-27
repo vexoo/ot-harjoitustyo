@@ -21,4 +21,4 @@
 | 25.4. | 1 | javadoc tietokantaluokalle |
 | 26.4. | 2 | arkkitehtuurikuvaus aloitettu |
 | 27.4. | 2 | neliöjuuri toimii nyt paremmin ja overflow korjattu hyvin suurilla numeroilla |
-| yht   | 56 | | 
+| yht   | 58 | | 
