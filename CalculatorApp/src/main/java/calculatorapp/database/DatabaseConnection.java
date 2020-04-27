@@ -140,8 +140,13 @@ public class DatabaseConnection {
                     return new SimpleStringProperty(param.getValue().get(j).toString());
                 }
             });
+            //col.prefWidthProperty().bind(tableView.widthProperty().multiply(0.5));
+            if (i == 0) {
+                col.setStyle("-fx-alignment: CENTER-RIGHT;");
+            }
             tableView.getColumns().addAll(col);
         }
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     /**
