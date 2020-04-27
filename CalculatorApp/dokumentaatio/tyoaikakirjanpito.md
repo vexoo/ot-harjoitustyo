@@ -17,8 +17,7 @@
 | 5.4. | 5 | suurten lukujen implementointia, valmis |
 | 6.4. | 2 | refaktorointia |
 | 14.4. | 2 | viikko5 release, viimeiset testit, sekvenssikaavio |
-| 23.4. | 3 | koodikatselmointi |
 | 25.4. | 9 | laskuhistoria/tietokanta implementoitu |
 | 25.4. | 1 | javadoc tietokantaluokalle |
 | 26.4. | 2 | arkkitehtuurikuvaus aloitettu |
-| yht   | 59 | | 
+| yht   | 56 | | 
