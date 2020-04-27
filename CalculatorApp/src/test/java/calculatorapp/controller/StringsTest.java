@@ -1,6 +1,5 @@
 package calculatorapp.controller;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -46,7 +45,4 @@ public class StringsTest {
         assertEquals("135.2", strings.getValue(value));
     }
 
-    @After
-    public void tearDown() {
-    }
 }

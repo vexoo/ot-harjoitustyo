@@ -11,8 +11,7 @@ import javafx.geometry.Pos;
 import calculatorapp.controller.Calculations;
 import calculatorapp.controller.Strings;
 import calculatorapp.operator.Operator;
-import calculatorapp.database.*;
-import java.sql.SQLException;
+import calculatorapp.database.DatabaseConnection;
 import java.util.Locale;
 import javafx.scene.text.Font;
 import javafx.application.Application;
@@ -40,7 +39,7 @@ public class CalcUI extends Application {
 
         Locale.setDefault(Locale.US);
 
-        connect = new DatabaseConnection();
+        connect = new DatabaseConnection("jdbc:sqlite:assets/history.db", "history");
         calculations = new Calculations(connect);
         buttons = createGrid();
 

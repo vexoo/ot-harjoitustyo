@@ -10,7 +10,7 @@ import java.math.MathContext;
 public class Calculations {
 
     private Operator currentOperator;
-    private DatabaseConnection connect;
+    private final DatabaseConnection connect;
 
     public Calculations(DatabaseConnection connection) {
         this.connect = connection;

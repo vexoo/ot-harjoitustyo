@@ -1,6 +1,5 @@
 package calculatorapp.controller;
 
-import org.junit.After;
 import org.junit.Before;
 import javafx.scene.control.TextField;
 import org.junit.Test;
@@ -9,6 +8,8 @@ import org.junit.runner.RunWith;
 import de.saxsys.javafx.test.JfxRunner;
 import calculatorapp.operator.*;
 import calculatorapp.database.DatabaseConnection;
+import java.io.File;
+import org.junit.AfterClass;
 
 @RunWith(JfxRunner.class)
 public class CalculationsTest {
@@ -17,10 +18,12 @@ public class CalculationsTest {
     Operator operator;
     DatabaseConnection connection;
     TextField mainField, secondField;
+    static File file;
 
     @Before
     public void setUp() {
-        connection = new DatabaseConnection();
+        connection = new DatabaseConnection("jdbc:sqlite:assets/test.db", "test");
+        file = new File("assets/test.db");
         calculations = new Calculations(connection);
         connection.createNewDatabase();
         mainField = new TextField();
@@ -157,8 +160,8 @@ public class CalculationsTest {
         return Integer.parseInt(calculations.calculate(mainField, secondField));
     }
 
-    @After
-    public void tearDown() {
-        connection.delete();
+    @AfterClass
+    public static void tearDown() {
+        file.delete();
     }
 }

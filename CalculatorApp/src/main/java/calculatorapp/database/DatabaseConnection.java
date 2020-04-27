@@ -18,21 +18,24 @@ import org.apache.commons.dbutils.DbUtils;
 public class DatabaseConnection {
 
     private ObservableList<ObservableList> data;
-    private static String url = "jdbc:sqlite:assets/history.db";
+    private static String url;
+    private static String dbName;
     private static Connection conn = null;
 
-    public DatabaseConnection() {
+    public DatabaseConnection(String url, String dbName) {
         data = FXCollections.observableArrayList();
+        this.url = url;
+        this.dbName = dbName;
     }
 
     /**
      * Luo tietokannan .db tiedoston jos sitä ei ole olemassa. Sijainti on
-     * CalculatorApp-kansio.
+     * CalculatorApp/assets/-kansio.
      */
     public static void createNewDatabase() {
 
         Statement stmt = null;
-        String sql = "CREATE TABLE IF NOT EXISTS history (\n"
+        String sql = "CREATE TABLE IF NOT EXISTS " + dbName + " (\n"
                 + "	operation text NOT NULL,\n"
                 + "	result text NOT NULL\n"
                 + ");";
@@ -62,7 +65,8 @@ public class DatabaseConnection {
         row.add(result);
         data.add(row);
 
-        String sql = "INSERT INTO history(operation,result) VALUES(?,?)";
+        //String sql = "INSERT INTO history(operation,result) VALUES(?,?)";
+        String sql = "INSERT INTO " + dbName + "(operation,result) VALUES(?,?)";
         PreparedStatement pstmt = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -84,7 +88,7 @@ public class DatabaseConnection {
      */
     public void delete() {
         data.clear();
-        String sql = "DELETE from history";
+        String sql = "DELETE from " + dbName;
         PreparedStatement pstmt = null;
         try {
             conn = DriverManager.getConnection(url);
@@ -109,7 +113,7 @@ public class DatabaseConnection {
         ResultSet rs = null;
         try {
             conn = DriverManager.getConnection(url);
-            String sql = "SELECT * from history";
+            String sql = "SELECT * from " + dbName;
             rs = conn.createStatement().executeQuery(sql);
             buildTableViewColumns(rs, tableView);
             addDataToTableView(rs, tableView);
@@ -123,7 +127,7 @@ public class DatabaseConnection {
     }
 
     /**
-     * buildDataFromDatabase apumetodi. Rakentaa TableView:n kolumnit.
+     * buildDataFromDatabase apumetodi. Rakentaa TableView:n sarakkeet.
      *
      * @param rs Tietokannan tieto
      * @param tableView Käyttöliittymän alapuolella oleva taulukko
