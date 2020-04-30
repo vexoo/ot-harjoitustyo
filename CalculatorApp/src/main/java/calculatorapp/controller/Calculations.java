@@ -4,7 +4,7 @@ import calculatorapp.database.DatabaseConnection;
 import java.math.BigDecimal;
 import ch.obermuhlner.math.big.BigDecimalMath;
 import javafx.scene.control.TextField;
-import calculatorapp.operator.*;
+import calculatorapp.operator.Operator;
 import java.math.MathContext;
 
 public class Calculations {
@@ -67,7 +67,7 @@ public class Calculations {
      * kuin 0
      */
     public String squareRoot(TextField mainField) {
-        MathContext mathContext = new MathContext(20);
+        MathContext mathContext = new MathContext(10);
         BigDecimal val = BigDecimalMath.toBigDecimal(Strings.getValue(mainField.getText()));
         if (val.equals(BigDecimal.ZERO)){
             return "0";
@@ -76,7 +76,7 @@ public class Calculations {
         if (val.signum() < 0) {
             return "Invalid input";
         } else {
-            operation = "\u221A" + mainField.getText() + " =";
+            operation = "\u221A" + val.toString() + " = ";
             result = Strings.formatIntoCalcDisplay(BigDecimalMath.sqrt(val, mathContext));
             connect.insert(operation, result);
             return result;

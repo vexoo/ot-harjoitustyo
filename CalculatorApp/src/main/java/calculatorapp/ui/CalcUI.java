@@ -39,7 +39,6 @@ public class CalcUI extends Application {
 
         Locale.setDefault(Locale.US);
 
-        //connect = new DatabaseConnection("jdbc:sqlite:assets/history.db", "history");
         connect = new DatabaseConnection("jdbc:sqlite:history.db", "history");
         calculations = new Calculations(connect);
         buttons = createGrid();

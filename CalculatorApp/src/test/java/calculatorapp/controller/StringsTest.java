@@ -20,9 +20,9 @@ public class StringsTest {
 
     @Test
     public void scientificNotation() {
-        BigDecimal value = new BigDecimal("123456789012345678901111111111110");
+        BigDecimal value = new BigDecimal("10000000000");
         String result = strings.formatIntoCalcDisplay(value);
-        assertEquals("1.2345678901234567890111111111111E+32", result);
+        assertEquals("1E+10", result);
     }
     
     @Test

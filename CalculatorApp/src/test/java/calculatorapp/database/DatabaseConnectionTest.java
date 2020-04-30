@@ -1,15 +1,15 @@
-
 package calculatorapp.database;
 
 import calculatorapp.controller.Calculations;
-import calculatorapp.database.DatabaseConnection;
+import de.saxsys.javafx.test.JfxRunner;
 import java.io.File;
-import java.sql.SQLException;
 import javafx.scene.control.TableView;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+@RunWith(JfxRunner.class)
 public class DatabaseConnectionTest {
 
     Calculations calculations;
@@ -20,8 +20,6 @@ public class DatabaseConnectionTest {
     @Before
     public void setUp() {
         connection = new DatabaseConnection("jdbc:sqlite:test.db", "test");
-        //connection = new DatabaseConnection("jdbc:sqlite:assets/test.db", "test");
-        //file = new File("assets/test.db");
         file = new File("test.db");
         connection.createNewDatabase();
         tableView = new TableView();

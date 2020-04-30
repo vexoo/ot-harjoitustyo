@@ -9,13 +9,13 @@ public class Strings {
     /**
      * Muuttaa laskutoimituksen BigDecimal-arvon String-muotoon.
      * @param value Calculations-luokassa suoritetun laskutoimituksen arvo
-     * @return Onko numeromäärä muuttujassa value vähintään 20? Jos on, vaihda kymmenpotenssimuotoon.
+     * @return Onko numeromäärä muuttujassa value vähintään 10? Jos on, vaihda kymmenpotenssimuotoon.
      * Jos ei, onko valuessa desimaaleja? Jos ei, palauta BigInteger String-muodossa, jotta tyhjä desimaali (.0) poistetaan.
      * Jos on, poista mahdolliset nolladesimaalit ja palauta.
      */
     public static String formatIntoCalcDisplay(BigDecimal value) {
         Locale.setDefault(Locale.US);
-        return value.precision() >= 20
+        return value.precision() >= 10
                 ? value.stripTrailingZeros().toString() : value.stripTrailingZeros().scale() <= 0
                 ? value.toBigInteger().toString() : removeDecimalZeroes(String.format("%.6f", value));
     }

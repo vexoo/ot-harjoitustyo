@@ -22,9 +22,7 @@ public class CalculationsTest {
 
     @Before
     public void setUp() {
-        //connection = new DatabaseConnection("jdbc:sqlite:assets/test.db", "test");
         connection = new DatabaseConnection("jdbc:sqlite:test.db", "test");
-        //file = new File("assets/test.db");
         file = new File("test.db");
         calculations = new Calculations(connection);
         connection.createNewDatabase();
