@@ -12,6 +12,8 @@ JavaFX:llä toteutetulla käyttöliittymällä varustettu laskin. </br>Windows10
 
 [Arkkitehtuurikuvaus](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/arkkitehtuuri.md)
 
+[Testaus](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/testaus.md)
+
 [Käyttöohje](https://github.com/vexoo/ot-harjoitustyo/blob/master/CalculatorApp/dokumentaatio/kayttoohje.md)
 
 ## Releaset
