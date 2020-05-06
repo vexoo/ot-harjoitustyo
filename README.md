@@ -22,6 +22,8 @@ JavaFX:llä toteutetulla käyttöliittymällä varustettu laskin. </br>Windows10
 
 [Viikko 6](https://github.com/vexoo/ot-harjoitustyo/releases/tag/viikko6)
 
+[Loppupalautus](https://github.com/vexoo/ot-harjoitustyo/releases/tag/Loppupalautus)
+
 ## Komentorivitoiminnot
 
 Osoita komentorivi CalculatorApp kansioon.<br/>
