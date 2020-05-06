@@ -3,10 +3,6 @@
 <!DOCTYPE suppressions PUBLIC
     "-//Puppy Crawl//DTD Suppressions 1.1//EN"
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
-
-<!--<!DOCTYPE suppressions PUBLIC
-    "-//Checkstyle//DTD Suppressions 1.1//EN"
-    "http://checkstyle.sourceforge.net/dtds/suppressions_1_1.dtd">-->
 <suppressions>
     <suppress files="calculatorapp.ui.CalcUI.java" checks="[a-zA-Z0-9]*"/>
 	<suppress files="calculatorapp.Main.java" checks="[a-zA-Z0-9]*"/>
