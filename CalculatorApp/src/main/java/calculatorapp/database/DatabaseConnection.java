@@ -30,7 +30,7 @@ public class DatabaseConnection {
 
     /**
      * Luo tietokannan .db tiedoston jos sitä ei ole olemassa. Sijainti on
-     * CalculatorApp/assets/-kansio.
+     * CalculatorApp/-kansio tai sama sijainti kuin ohjelman avaava .jar.
      */
     public static void createNewDatabase() {
 

@@ -30,7 +30,7 @@ public class Calculations {
      */
     public String calculate(TextField mainField, TextField secondField) {
         String fVal = secondField.getText().replaceAll("([\\+\\-\\u00F7\\*\\s\\^](?![0-9]))", "");
-        String sVal = mainField.getText();
+        String sVal = Strings.getValue(mainField.getText());
 
         if (sVal.equals("0") && currentOperator == Operator.DIVIDE) {
             return "Cannot divide by zero";
@@ -60,7 +60,7 @@ public class Calculations {
     }
 
     /**
-     * Laskee mainFieldin luvun neliöjuuren.
+     * Laskee mainFieldin luvun neliöjuuren. Lisää myös neliöjuuren laskutoimituksen tietokantaan.
      *
      * @param mainField Alempi textField
      * @return Palauttaa luvun neliöjuuren jos mahdollista, eli luku on suurempi
@@ -69,17 +69,18 @@ public class Calculations {
     public String squareRoot(TextField mainField) {
         MathContext mathContext = new MathContext(10);
         BigDecimal val = BigDecimalMath.toBigDecimal(Strings.getValue(mainField.getText()));
-        if (val.equals(BigDecimal.ZERO)){
+        if (val.equals(BigDecimal.ZERO)) {
             return "0";
-        }
-        String operation, result;
-        if (val.signum() < 0) {
-            return "Invalid input";
         } else {
-            operation = "\u221A" + val.toString() + " = ";
-            result = Strings.formatIntoCalcDisplay(BigDecimalMath.sqrt(val, mathContext));
-            connect.insert(operation, result);
-            return result;
+            String operation, result;
+            if (val.signum() < 0) {
+                return "Invalid input";
+            } else {
+                operation = "\u221A" + val.toString() + " = ";
+                result = Strings.formatIntoCalcDisplay(BigDecimalMath.sqrt(val, mathContext));
+                connect.insert(operation, result);
+                return result;
+            }
         }
     }
 
